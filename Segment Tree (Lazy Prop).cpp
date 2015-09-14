@@ -28,9 +28,9 @@ void init(int node, int b, int e)
 void update(int node, int b, int e, int i, int j, int x)
 {
     if(i > e || j < b) return;
-    if(b >= e || e <= j) // নোডের রেঞ্জ আপডেটের রেঞ্জের ভিতরে
+    if(b >= i && e <= j) // নোডের রেঞ্জ আপডেটের রেঞ্জের ভিতরে
     {
-        tree[node].sum += ((e - b + 1) * x); // নিচে নোড আছে e-b+1 টি, তাই e+b-1 বার x যোগ হবে এই রেঞ্জে
+        tree[node].sum += ((e-b+1) * x); // নিচে নোড আছে e-b+1 টি, তাই e+b-1 বার x যোগ হবে এই রেঞ্জে
         tree[node].prop += x; // নিচের নোডগুলোর সাথে x যোগ হবে
         return;
     }
@@ -40,7 +40,7 @@ void update(int node, int b, int e, int i, int j, int x)
     int mid = (b + e) / 2;
     update(Left, b, mid, i, j, x);
     update(Right, mid + 1, e, i, j, x);
-    tree[node].sum = tree[Left].sum + tree[Right].sum + (e - b + 1) * tree[node].prop;
+    tree[node].sum = tree[Left].sum + tree[Right].sum + (e-b+1)*tree[node].prop;
 
     // উপরে উঠার সময় পথের নোডগুলো আপডেট হবে
     // বাম আর ডান পাশের সাম ছাড়াও যোগ হবে নিচে অতিরিক্ত যোগ হওয়া মান
@@ -49,7 +49,7 @@ void update(int node, int b, int e, int i, int j, int x)
 int query(int node, int b, int e, int i, int j, int carry = 0)
 {
     if(i > e || j < b) return 0;
-    if(b >= i && e <= j) return tree[node].sum + carry*(e+b-1);
+    if(b >= i && e <= j) return tree[node].sum + carry*(e-b+1);
 
     int Left = node << 1;
     int Right = (node << 1) + 1;
