@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <algorithm>
+#include <bits//stdc++.h>
 
 using namespace std;
 
@@ -16,23 +15,22 @@ struct heap {
         n = 0; // initially, there are no nodes in the heap
     }
 
-    void insert(int K) {
-        if(n == NN) {
+    void insert( int K ) { // inserting an element K in the heap
+        if( n == NN ) { // the heap is full
             printf("cannot insert any more element, the heap is full\n");
             return;
         }
         ++n; // so, we have a new element, we increased n before adding
-             // the element because we start from index 1
-        myarray[n] = K;
-        int p = n;
-
-        while(p > 1) { // p =1 means we are on the root, and its a heap
+        // the element because we start from index 1
+        myarray[n] = K; // inserted the element at the rightmost position
+        int p = n; // for keeping the current position
+        while(p > 1) { // p = 1 means we are on the root, and its a heap
             int pr = p / 2; // pr is the parent of p
-            if(myarray[pr] > myarray[p]) { // parent is greater than child
-                swap(myarray[pr], myarray[p]);
+            if( myarray[pr] > myarray[p] ) { // parent is greater than child
+                swap( myarray[pr], myarray[p] );
                 p = pr; // now the new position of the current element is pr
             }
-            else break;
+            else break; // otherwise its a heap, so we can stop here
         }
     }
 
@@ -60,8 +58,8 @@ struct heap {
                 p = ch; // new position of the current element
             }
             else break; // current node is smaller than its children, so heap
-            }
-            return K;
+        }
+        return K;
     }
     void print() {
         printf("Number of elements: %d\n", n);
