@@ -24,7 +24,7 @@ struct heap {
         ++n; // so, we have a new element, we increased n before adding
              // the element because we start from index 1
         myarray[n] = K;
-        int p = 1;
+        int p = n;
 
         while(p > 1) { // p =1 means we are on the root, and its a heap
             int pr = p / 2; // pr is the parent of p
