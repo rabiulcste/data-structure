@@ -61,6 +61,7 @@ struct heap {
         }
         return K;
     }
+    
     void print() {
         printf("Number of elements: %d\n", n);
         for(int i = 1; i <= n; i++) printf("%d ", myarray[i]);
