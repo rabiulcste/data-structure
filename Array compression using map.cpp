@@ -23,6 +23,7 @@ void compress()
         x = mymap[x];
         compressed[c++] = x;
     }
+    
     printf("Compressed array: ");
     for(int i = 0; i < n; i++)
         printf("%d ", compressed[i]);
