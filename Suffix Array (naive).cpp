@@ -12,6 +12,7 @@ int main()
     map<string, int> m;
     cin >> s;
     vector<string> v;
+    
     for(int i = 0; i < s.size(); i++)
     {
         m[s.substr(i, s.size()-1)] = i;
