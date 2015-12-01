@@ -25,7 +25,7 @@ void init(int node, int b, int e)
 int query(int node, int b, int e, int i, int j)
 {
     if(i > e || j< b) return 0;
-    if(b >= e && e <= j) return tree[node];
+    if(b >= i && e <= j) return tree[node];
     int left = node*2;
     int right = node*2 + 1;
     int mid = (b+e)/2;
