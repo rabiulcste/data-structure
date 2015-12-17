@@ -56,10 +56,11 @@ int main()
     int n;
     cin>>n;
     
-    for(int i=0; i<n; i++)
+    for(int i=1; i<=n; i++)
     {
         cin>>arr[i];
     }
+    init();
     update(1, 1, n, 2, 0);
     cout<<query(1, 1, n, 1, 3)<<endl;
     update(1, 1, n, 2, 2);
