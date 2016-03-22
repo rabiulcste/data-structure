@@ -1,0 +1,20 @@
+// Problem Link - http://codeforces.com/problemset/problem/253/B
+
+#include <bits//stdc++.h>
+using namespace std;
+#define sf scanf
+
+int a[100000+10], mx;
+
+int main()
+{
+    int n, i, j;
+    sf("%d", &n);
+    for(i=0; i<n; i++) sf("%d", &a[i]);
+    sort(a, a+n);
+    for(i=0, j=0; i<n; i++){
+        while(j<n && a[j] <= 2*a[i]) j++;
+        mx = max(mx, j-i);
+    }
+    cout << n - mx <<endl;
+}
