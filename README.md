@@ -12,6 +12,6 @@
 - Lowest Common Ancestor
 - Trie Tree 
 - Range-Minimum-Query	
--- Segment Tree
+  - Segment Tree
 - Searching Sorting and Backtraking
 - Two Pointer
