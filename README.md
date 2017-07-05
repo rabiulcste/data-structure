@@ -1,4 +1,4 @@
-# Data Structer
+# Data Structure
 
 *Language: C++*
 
